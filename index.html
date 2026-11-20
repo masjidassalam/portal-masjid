@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#065F46">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Masjid As Salam">
+  <title>Masjid As Salam - Sistem Manajemen & Portal Jamaah</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/2319/2319870.png">
+  <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2319/2319870.png">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #F8FAFC;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+    #appFrame {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <iframe
+    id="appFrame"
+    src="https://script.google.com/macros/s/AKfycbz0OgF0XrBNF3kaeu-qumTb07ZJnnycthXgXejzgyGFPYFoC4_TgpEzoQJ6F3kdo6Cy/exec"
+    allow="camera; microphone; geolocation; clipboard-write"
+    allowfullscreen>
+  </iframe>
+
+  <script>
+    // Meneruskan parameter URL (misalnya ?id=QRB001 dari scan QR Tabungan Qurban) ke GAS
+    (function() {
+      var frame = document.getElementById('appFrame');
+      var baseUrl = frame.getAttribute('src');
+      if (window.location.search) {
+        frame.src = baseUrl + window.location.search;
+      }
+    })();
+
+    // Registrasi Service Worker agar memenuhi syarat Install PWA Chrome/Android
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('./sw.js').catch(function(err) {
+          console.log('SW registration failed:', err);
+        });
+      });
+    }
+  </script>
+</body>
+</html>

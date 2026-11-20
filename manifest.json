@@ -1,0 +1,24 @@
+{
+  "name": "Masjid As Salam Batam",
+  "short_name": "Masjid As Salam",
+  "description": "Sistem Manajemen DKM, Zakat, Fidyah & Tabungan Qurban Masjid As Salam",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F8FAFC",
+  "theme_color": "#065F46",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/2319/2319870.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/2319/2319870.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
